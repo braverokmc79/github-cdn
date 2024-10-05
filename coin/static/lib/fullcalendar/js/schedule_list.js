@@ -9,7 +9,7 @@ function getFullCalendarEvent() {
 	const calendarEl = document.getElementById('calendar');
 	$calendar = new FullCalendar.Calendar(calendarEl, {
 
-		googleCalendarApiKey: 'AIzaSyC0FUZQDQQz--Jk247ww0WFXmtkCxoKoRE',
+		googleCalendarApiKey: 'E',
 		//className은  되도록 캘린더랑 맞추길
 		eventSources: [
 			{
