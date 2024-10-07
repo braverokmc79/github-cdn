@@ -1,4 +1,5 @@
- 
+var $home=$("#home").attr("content"); 
+
 //기본 옵션 설정 
 toastr.options = {
   "closeButton": false,
@@ -124,7 +125,7 @@ function enterkey() {
 
 function noticeCount(){
   $.ajax({
-		url:"/note/noticeCount",
+		url:$home+"/note/noticeCount",
 		type:"POST",			
 		success:function(res){
 			$("#NOTICE_COUNT_SETINTERVAL").val(res.NOTICE_COUNT_SETINTERVAL);			
@@ -185,7 +186,7 @@ $( document ).ready(function() {
 				return;
 			}	
 			$.ajax({
-				url:"/scrap/insertScrap",
+				url:$home+"/scrap/insertScrap",
 				type:"POST",
 				data:{bno},
 				success:function(res){
@@ -225,7 +226,7 @@ $( document ).ready(function() {
 	//알림 버튼 클릭시 메시지 목록 가져오기
    $("#noticeCountBtn").on("click", function(){
 		$.ajax({
-				url:"/note/notificationMessage",
+				url:$home+"/note/notificationMessage",
 				type:"POST",
 				success:function(res){
 					

@@ -3,7 +3,7 @@
 /****************************************************************************************************** */
 /*이에밀 인증 처리 */
 
-
+var $home=$("#home").attr("content"); 
 const checkedValueColor = "#4CAF50";
 const usedValueColor = "#ff1744";
 const defaultColor = "#ddd";
@@ -41,7 +41,7 @@ function emailKeySend() {
 	loading_pop_klover();
 	
 	$.ajax({
-		url: "/emailAuthentication/send",
+		url: $home+"/emailAuthentication/send",
 		type: "post",
 		data: { email: email.val() },
 		success: function(res) {
@@ -195,7 +195,7 @@ $(function() {
 			data: {
 				userId: userId.val()
 			},
-			url: "/join/checkUserId",
+			url: $home+"/join/checkUserId",
 			success: function(result) {
 				var d = parseInt($.trim(result));
 				if (d == 0) {
@@ -246,7 +246,7 @@ $(function() {
 			data: {
 				email: email.val()
 			},
-			url: "/join/emailDbCheck",
+			url:$home+ "/join/emailDbCheck",
 			success: function(result) {
 				//console.log(result);
 
@@ -310,7 +310,7 @@ $(function() {
 			data: {
 				username: username.val()
 			},
-			url: "/join/usernameDbCheck",
+			url:$home+ "/join/usernameDbCheck",
 			success: function(result) {
 
 				var d = parseInt($.trim(result));
@@ -556,7 +556,7 @@ function registerSubmit() {
 
 					$.ajax({
 						type: "POST",
-						url: "/join/signup",
+						url: $home+"/join/signup",
 						contentType: "application/json",
 						data: JSON.stringify(paramData),
 						success: function(d) {
@@ -565,7 +565,7 @@ function registerSubmit() {
 							if ($.trim(d) == "success") {
 								//alert("이메일로 인증 코드가 발송 되었습니다.\n이메일 인증후 이용가능합니다.");
 								alert("회원 가입을 축하합니다.");
-								location.href = "/loginForm";
+								location.href = $home+"/loginForm";
 							} else {
 								alert(d);
 							}

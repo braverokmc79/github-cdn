@@ -1,4 +1,4 @@
-
+var $home=$("#home").attr("content"); 
 const bno=$("#bno").val();
 const title=$("#title").val();
 const place=$("#place").val();
@@ -131,7 +131,7 @@ $(document).ready(function(){
 			
 			if(type=='1'){				
 				$.ajax({
-					url:"/board/passwordConfirm",
+					url:$home+"/board/passwordConfirm",
 					type:"post",
 					dataType:"text",
 					data:{
@@ -164,7 +164,7 @@ $(document).ready(function(){
 			
 			if(type=='2'){
 				$.ajax({
-					url:"/board/passwordConfirm",
+					url:$home+"/board/passwordConfirm",
 					type:"post",
 					dataType:"text",
 					data:{
@@ -192,7 +192,7 @@ $(document).ready(function(){
 								success: function (result) {		
 									if ($.trim(result) == "SUCCESS") {
 										alert("삭제되었습니다.");
-										location.href="/board/list";
+										location.href=$home+"/board/list";
 									} else 
 										alert(msg);
 								}
@@ -232,7 +232,7 @@ $(document).ready(function(){
 				bno:$("#bno").val(),
 				uid:uid
 			},
-	        url: "/like/update",
+	        url: $home+"/like/update",
 	        success:function(result){	        	
 	        	let cnt =Number($("#likeCount").val());
 	        	console.log(" result : ", result,  cnt);
@@ -298,7 +298,7 @@ $(document).ready(function(){
 	  
 	  
 		$.ajax({
-			url:"/comment/replies/create",
+			url:$home+"/comment/replies/create",
 	        type:"post",
 			data :{
 				bno:  bno,
@@ -355,7 +355,7 @@ $(document).ready(function(){
 			return;
 		}
 		$.ajax({
-			url:"/comment/replies/removePassowrd/"+rno,
+			url:$home+"/comment/replies/removePassowrd/"+rno,
 			type:"post",
 			dataTye:"text",
 			data:{
@@ -404,7 +404,7 @@ $(document).ready(function(){
 			return;
 		}
 		$.ajax({
-			url:"/note/send",
+			url:$home+"/note/send",
 			type:"post",
 			data:{receiveId,title,content},
 			success:function(res){
@@ -510,7 +510,7 @@ function getLike(){
 	$.ajax({
 		type: "GET",
 		data:{bno:$("#bno").val()},
-        url: "/like/list",
+        url: $home+"/like/list",
         success: function (res) {			
         	$("#topLikeCount").html("<img class='board-star-img' src='/resources/web/images/star_grey.png'><i class='topLikeCount-i'>"+res+"</i></span>");
         },
@@ -585,7 +585,7 @@ function updateReply(rno){
 	
 	
 	$.ajax({
-		url:"/comment/replies/update",
+		url:$home+"/comment/replies/update",
 		type:"put",
 		data:{
 			rno,
@@ -610,7 +610,7 @@ function replyDelete(rno){
 	if (confirm("정말 삭제하시겠습니까?") == true) {
 		$.ajax({
 			type: "DELETE",
-			url: "/comment/replies/delete/" + rno,
+			url: $home+"/comment/replies/delete/" + rno,
 			success: function (result) {
 				if ($.trim(result) == "SUCCESS") {					
 					replyList(1);
