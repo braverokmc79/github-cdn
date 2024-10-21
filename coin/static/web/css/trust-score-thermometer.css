@@ -1,0 +1,111 @@
+
+
+.thermometer-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.thermometer-container .thermometer {
+    width: 400px;
+    text-align: center;
+}
+
+.thermometer-container .label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+.thermometer-container .track {
+    position: relative;
+    height: 25px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.thermometer-container .progress {
+    width: 100%;
+    position: absolute;
+    height: 100%;
+}
+
+.thermometer-container .mercury {
+    height: 100%;
+    background-color: #36c;
+    width: 36.5%; /* 초기 온도 */
+    transition: width 0.5s ease;
+}
+
+.thermometer-container  .ticks {
+    display: flex;
+    justify-content: space-between;
+    /*margin-top: 5px;*/
+}
+
+.thermometer-container  .ticks span {
+    font-size: 12px;
+    z-index:1;
+    top: 5px;
+    position: relative;
+    color: #000;
+}
+
+/* 눈금자 스타일  */
+.thermometer-container .ruler {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+.thermometer-container .ruler .tick {
+    width: 1px;
+    height: 10px;
+    background-color: #000;
+    position: relative;
+}
+
+/* 36.5도 눈금 강조 (36.5% 위치) */
+.thermometer-container  .ruler::before {
+    content: '';
+    position: absolute;
+    left: 36.5%;
+    width: 2px; /* 강조된 눈금 굵기 */
+    height: 15px; /* 강조된 눈금 길이 */
+    background-color: red !important; /* 강조된 눈금 색상 */
+}
+
+
+
+.thermometer-container .temperature-display {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 10px; /* track 밑으로 이동 */
+}
+
+.thermometer-container  .face {
+    font-size: 30px;
+}
+
+.thermometer-container  .controls {
+    margin-top: 20px;
+}
+
+.trust-score-thermometer button {
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #ff9800;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.trust-score-thermometer button:hover {
+    background-color: #e68900;
+}
